@@ -17,7 +17,7 @@ except Exception as e:
   
 
 setup(
-    name = "pyscdior",
+    name = "diopy",
     version = "0.2.0",
     keywords = ["scRNA-seq", "hdf5", "data IO", "scanpy"],
     description = "The scRNA-seq data IO between R and Python(Python version)",
@@ -26,7 +26,7 @@ setup(
     python_requires=">=3.5.0",
     license = "GPL-3.0 License",
 
-    url = ["https://github.com/JiekaiLab/scDIOR", "https://github.com/fenghuijian/pyscdior"],
+    url = ["https://github.com/JiekaiLab/scDIOR", "https://github.com/fenghuijian/diopy"],
     author = "Huijian Feng",
     author_email = "fenghuijian@outlook.com",
 
