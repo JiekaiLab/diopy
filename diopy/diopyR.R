@@ -15,3 +15,6 @@ fname <- substr(opt$readfile, start = max(ind[[1]])+1, stop = nchar(opt$readfile
 wname <- gsub('.rds', '_tmp.h5', fname)
 write_h5(data = data, object.type = getopt$targetobject ,file = paste0(rdir, wname),
          assay.name = "RNA", save.graphs = TRUE, save.scale = TRUE)
+devtools::install_github('JiekaiLab/dior')
+
+library(dior)

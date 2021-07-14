@@ -392,11 +392,12 @@ def h5_to_adata(h5: h5py.File = None,
     return adata
 
 # read the R rds file 
+osr = os.getwcd()
 def read_rds(file: Union[str, None] = None,
              object_type:str = 'Seurat',
              assay_name: str = 'RNA'
             ) -> anndata.AnnData:
-    os.system('Rscript diopyR.R'+' -r '+ file +' -t '+ object_type)
+    os.system('Rscript ' + osr + '/diopyR.R'+' -r '+ file +' -t '+ object_type)
     tmp = re.sub('.rds', '_tmp.h5', file)
     adata = read_h5(file =tmp, assay_name = assay_name)
     return adata
