@@ -392,7 +392,7 @@ def h5_to_adata(h5: h5py.File = None,
     return adata
 
 # read the R rds file 
-osr = os.getwcd()
+osr = os.getcwd()
 def read_rds(file: Union[str, None] = None,
              object_type:str = 'Seurat',
              assay_name: str = 'RNA'
