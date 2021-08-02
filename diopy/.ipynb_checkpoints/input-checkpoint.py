@@ -563,7 +563,7 @@ def read_rds(file: Union[str, None] = None,
     # osr = os.path.join(os.path.dirname(__file__), '/R/diopyR.R')
     current_path = os.path.abspath(__file__)
     diopyr_file= os.path.abspath(os.path.dirname(current_path) + os.path.sep + ".") + '/R/diopyR.R'
-    os.system('Rscript ' + diopyr_file +' -r '+ file +' -t '+ object_type+' -a '+assay_name)
+    os.system('Rscript ' + diopyr_file +' -r '+ file +' -t '+ object_type)
     tmp = re.sub('.rds', '_tmp.h5', file)
     adata = read_h5(file =tmp, assay_name = assay_name)
     return adata

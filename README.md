@@ -1,14 +1,11 @@
 # diopy
-single-cell data IO between R and Python (Python version)
 
-
+The package dior is the part of scDIOR, which is used for single-cell data IO between R and Python (Python version)
 
 ## installation
-
+We recommend using pip for installation
 ```shell
-git clone https://github.com/JiekaiLab/diopy.git
-cd diopy
-python setup.py install
+pip install diopy
 ```
 
 

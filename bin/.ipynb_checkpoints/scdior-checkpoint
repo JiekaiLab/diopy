@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+import argparse
+from diopy.input import *
+from diopy.output import *
+import numpy as np
+import h5py
+import scanpy as sc
+import re, sys
+
+def get_parser():
+    desc = 'single-cell data IO software'
+    exmp = 'scdior [-i file.h5ad/file.rds] [-o file.rds/file.h5ad] [-t seurat/singlecellexperiment] [-a RNA]'
+    parser = argparse.ArgumentParser(prog='scdior', description=desc, epilog=exmp)
+    required = parser.add_argument_group('required arguments')
+    required.add_argument('-i', '--input', dest='input', type=str, required=True,
+                          help='The existing filename for different platforms, such as rds(R) or h5ad(Python)')
+    required.add_argument('-o', '--output', dest='output', type=str, required=True,
+                          help='The filename that needs to be converted, such as from rds to h5ad or from h5ad to rds')
+    required.add_argument('-t', '--target', dest='target', type=str, required=True,
+                          help='The target object for R, such as seruat or singlecellexperiment')
+    required.add_argument('-a', '--assay_name', dest='assay_name', type=str, required=True,
+                          help='The primary data types, such as scRNA data or spatial data')
+    args = parser.parse_args()
+    return args
+
+def main():
+    """ Start sdDIOR tranformation"""
+    args = get_parser()
+    if '.rds' in args.input:
+        data = read_h5(file=args.input, object_type=args.target, assay_name=args.assay_name)
+        print("...loading the rds file...")
+        if '.h5ad' in args.output:
+            data.write(args.ouput)
+            print("...saving the h5ad file...")
+            print("...complete....")
+        else:
+            print('input name as the same as output name')
+            # raise NameError
+    elif '.h5ad' in args.input:
+        data = sc.read(args.input)
+        # write_h5(adata=data, file=re.sub('.h5ad','_tmp.h5',args.input), assay_name=args.assay_name)
+        print("...loading the h5ad file...")
+        if '.rds' in args.output:
+            write_rds(adata=data, file=args.output, object_type=args.target, assay_name=args.assay_name)
+            print("...saving the rds file...")
+            print("...complete....")
+        else:
+            print('input name as the same as output name')
+           #raise NameError
+    return
+
+
+if __name__ == '__main__':
+    main()

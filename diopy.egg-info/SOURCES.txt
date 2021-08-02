@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+bin/scdior
+diopy/__init__.py
+diopy/input.py
+diopy/output.py
+diopy.egg-info/PKG-INFO
+diopy.egg-info/SOURCES.txt
+diopy.egg-info/dependency_links.txt
+diopy.egg-info/top_level.txt
+diopy/R/__init__.py
+diopy/R/diopyR.R
+diopy/R/diorC.R

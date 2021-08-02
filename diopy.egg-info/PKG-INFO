@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: diopy
+Version: 0.4.0
+Summary: The scRNA-seq data IO between R and Python(Python version)
+Home-page: UNKNOWN
+Author: Huijian Feng
+Author-email: fenghuijian@outlook.com
+License: GPL-3.0 License
+Description: # diopy
+        
+        The package dior is the part of scDIOR, which is used for single-cell data IO between R and Python (Python version)
+        
+        ## installation
+        We recommend using pip for installation
+        ```shell
+        pip install diopy
+        ```
+        
+        
+        
+        
+Keywords: scRNA-seq,hdf5,data IO,scanpy
+Platform: any
+Requires: scipy
+Requires: scanpy
+Requires: pandas
+Requires: numpy
+Requires: anndata
+Requires: re
+Requires: os
+Requires: h5py
+Requires: typing
+Requires: argparse
+Requires-Python: >=3.5.0
+Description-Content-Type: text/markdown

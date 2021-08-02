@@ -1,0 +1,2 @@
+include diopy/R/diopyR.R
+include diopy/R/diorC.R

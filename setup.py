@@ -1,10 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jan 13 17:43:55 2021
-
-@author: fenghuijian
-"""
-import os
+import glob, os
 from setuptools import setup, find_packages
 
 path = os.path.abspath(os.path.dirname(__file__))
@@ -18,7 +12,7 @@ except Exception as e:
 
 setup(
     name = "diopy",
-    version = "0.2.0",
+    version = "0.4.0",
     keywords = ["scRNA-seq", "hdf5", "data IO", "scanpy"],
     description = "The scRNA-seq data IO between R and Python(Python version)",
     long_description = long_description,
@@ -26,14 +20,16 @@ setup(
     python_requires=">=3.5.0",
     license = "GPL-3.0 License",
 
-    url = ["https://github.com/JiekaiLab/scDIOR", "https://github.com/fenghuijian/diopy"],
+    # l = ["https://github.com/JiekaiLab/scDIOR", "https://github.com/JiekaiLab/diopy"],
     author = "Huijian Feng",
     author_email = "fenghuijian@outlook.com",
-
     packages = find_packages(),
     include_package_data = True,
-    requires = ["scipy", "scanpy","pandas", "numpy", "anndata","re","os","h5py","typing"],
+    # If any package contains *.r files, include them:
+    package_data={'': ['*.R']},
+    requires = ["scipy", "scanpy","pandas", "numpy", "anndata","re","os","h5py","typing", "argparse"],
     platforms = "any",
+    # packages=['diopy'],
 
-    scripts = []
+    scripts = ['bin/scdior']
 )
